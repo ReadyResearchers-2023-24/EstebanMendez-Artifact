@@ -31,7 +31,12 @@ To begin your Python basics journey on ProgMagus and run the application locally
    ```
    npm install
    ```
-3. Run ProgMagus locally:
+3. Go to the main folder of the project:
+   ```
+   cd EstebanMendez-Artifact
+   cd elearn
+   ```
+4. Run ProgMagus locally:
    ```
    npm start
    ```
