@@ -27,14 +27,14 @@ To begin your Python basics journey on ProgMagus and run the application locally
 
 1. Clone the Repository.
 
-2. Install the dependencies:
-   ```
-   npm install
-   ```
-3. Go to the main folder of the project:
+2. Go to the main folder of the project:
    ```
    cd EstebanMendez-Artifact
    cd elearn
+   ```
+3. Install the dependencies:
+   ```
+   npm install
    ```
 4. Run ProgMagus locally:
    ```
