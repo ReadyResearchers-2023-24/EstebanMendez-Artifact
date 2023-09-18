@@ -1,5 +1,7 @@
 # EstebanMendez-Artifact - ProgMagus
 
+## Research Notebook
+https://github.com/orgs/ReadyResearchers-2023-24/discussions/19
 
 # ProgMagus - Learn Python Basics
 
