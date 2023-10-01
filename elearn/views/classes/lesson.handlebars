@@ -1,18 +1,147 @@
+<!DOCTYPE html>
 <html>
 <head>
+    {{!-- Two options of styles: --}}
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/snapshots/2023.09.1.RC1/core.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.23.2/full/pyodide.js"></script>
+    <script src="https://pyscript.net/latest/pyscript.js" defer></script>
+    
+    <style>
+        /* Add custom CSS styles for the button */
+        .py-repl-container {
+            display: flex; /* Use flexbox to control layout */
+            align-items: center; /* Center vertically */
+        }
+
+        .py-repl-run-button {
+            height: 20px;
+            width: 20px;
+            vertical-align: middle;
+            margin-left: 10px; /* Adjust the margin to control the button's position */
+            cursor: pointer;
+            color: green;
+        }
+
+        /* py-config - not a component */
+        py-config {
+        display: none
+        }
+
+        /* py-{el} - components not defined */
+        py-script:not(:defined) {
+        display: none
+        }
+    </style>
 </head>
 <body>
     <a href="/classes/{{class._id}}/lessons">Back to lessons</a>
     <h2>{{lesson.lesson_title}}</h2>
+
+
+    <!-- Add this code to display the "Edit Lesson" button for instructors -->
+    
+
+
+    <p> </p>
+
     {{lesson.lesson_body}}
 
-    <h2>Python Code Editor</h2>
-    <py-repl output="replOutput">
-        {{lesson.lesson_code}}
+    <p> </p>
+
+    {{!-- <h4>Python Code Editor</h4> --}}
+    <py-config>
+        plugins = [
+            "https://pyscript.net/latest/plugins/python/py_tutor.py"
+        ]
+    </py-config>
+    {{!-- <p>User ctrl + Shift to run!</p> --}}
+    <div class="py-repl-container"> <!-- Use a container to control layout -->
+        <py-repl id="my-repl">
+            {{lesson.lesson_code}}
+        </py-repl>
+        <py-splashscreen style="display: none;"></py-splashscreen>
+        <py-terminal auto="" docked="" style="display: none;" class="py-terminal-docked"><pre class="py-terminal"></pre></py-terminal>
+    </div>
+    
+    <div id="replOutput"></div>
+
+    <!-- Result Display -->
+    <div id="result" style="color: red;"></div>
+
+    <p> </p>
+
+    {{lesson.lesson_body2}}
+
+    <p> </p>
+
+    <py-repl id="my-repl2">
+        {{lesson.lesson_code2}}
     </py-repl>
-    <h3 style="display: none;">Output:</h3>
-    <div id="replOutput" style="display: none;"></div>
+
+    <p> </p>
+
+    {{lesson.lesson_body3}}
+
+    <p> </p>
+
+    <py-repl id="my-repl3">
+        {{lesson.lesson_code3}}
+    </py-repl>
+
+    <!-- Define the afterPyReplExec function -->
+    <script>
+        // Variable to hold the accumulated console log
+        var consoleLog = '';
+        // Variable to track whether the result has been set to "Correct"
+        var resultIsCorrect = false;
+
+        // Function to continuously capture and process the console log
+        function continuouslyCaptureConsoleLog() {
+            var originalLog = console.log;
+            console.log = function (message) {
+                // Append the new message to the consoleLog
+                consoleLog += message + '\n';
+                originalLog.apply(console, arguments);
+            };
+
+            // Set an interval to periodically process the console log
+            var intervalId = setInterval(function () {
+                // Delay the processing of the console log to avoid capturing while PyRepl is running
+                setTimeout(function () {
+                    console.log = originalLog;
+                    // Process the consoleLog content here
+                    processConsoleLog(consoleLog);
+                    // Clear the console log to avoid reprocessing the same log
+                    consoleLog = '';
+                }, 1000); // Delay for 1 second (adjust as needed)
+            }, 500); // Interval between log processing (adjust as needed)
+        }
+
+        // Function to process the captured console log
+        function processConsoleLog(log) {
+            var expected_output = "Hello Python!"; // Replace with your expected output
+
+            // Check if the result has already been set to "Correct"
+            if (resultIsCorrect) {
+                return; // Don't change the result if it's already correct
+            }
+
+            // Check if the log contains the expected output
+            if (log.includes(expected_output)) {
+                document.getElementById("result").textContent = "Correct";
+                document.getElementById("result").style.color = "green";
+                // Set the resultIsCorrect variable to true
+                resultIsCorrect = true;
+            } else {
+                document.getElementById("result").textContent = "Incorrect. Please try again.";
+                document.getElementById("result").style.color = "red";
+            }
+        }
+
+        // Call the continuouslyCaptureConsoleLog function to start capturing and processing console log
+        continuouslyCaptureConsoleLog();
+    </script>
+
 </body>
 </html>
