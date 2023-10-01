@@ -15,7 +15,11 @@ var ClassSchema = mongoose.Schema({
 		lesson_number: {type: Number},
 		lesson_title: {type: String},
 		lesson_body:{type: String},
-		lesson_code:{type: String}
+		lesson_body2:{type: String},
+		lesson_body3:{type: String},
+		lesson_code:{type: String},
+		lesson_code2:{type: String},
+		lesson_code3:{type: String}
 	}]
 });
 
@@ -37,11 +41,15 @@ module.exports.addLesson = function(info, callback){
 	lesson_number = info['lesson_number'];
 	lesson_title = info['lesson_title'];
 	lesson_body = info['lesson_body'];
+	lesson_body2 = info['lesson_body2'];
+	lesson_body3 = info['lesson_body3'];
 	lesson_code = info['lesson_code'];
+	lesson_code2 = info['lesson_code2'];
+	lesson_code3 = info['lesson_code3'];
 
 	Class.findByIdAndUpdate(
 		class_id,
-		{$push:{"lessons":{lesson_number: lesson_number, lesson_title: lesson_title,lesson_body:lesson_body,lesson_code:lesson_code}}},
+		{$push:{"lessons":{lesson_number: lesson_number, lesson_title: lesson_title,lesson_body:lesson_body,lesson_body2:lesson_body2,lesson_body3:lesson_body3,lesson_code:lesson_code,lesson_code2:lesson_code2,lesson_code3:lesson_code3}}},
 		{safe: true, upsert: true},
 		callback
 		);
