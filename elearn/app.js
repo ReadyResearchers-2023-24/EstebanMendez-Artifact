@@ -18,6 +18,7 @@ async = require('async');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var us = require('./routes/us');
 var classes = require('./routes/classes');
 var students = require('./routes/students');
 var instructors = require('./routes/instructors');
@@ -92,6 +93,7 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/us', us);
 app.use('/classes', classes);
 app.use('/students', students);
 app.use('/instructors', instructors);
