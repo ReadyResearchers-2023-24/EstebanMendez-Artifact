@@ -38,7 +38,11 @@ router.post('/classes/:id/lessons/new', function(req, res, next){
 	info['lesson_number'] = req.body.lesson_number;
 	info['lesson_title'] = req.body.lesson_title;
 	info['lesson_body'] = req.body.lesson_body;
+	info['lesson_body2'] = req.body.lesson_body2;
+	info['lesson_body3'] = req.body.lesson_body3;
     info['lesson_code'] = req.body.lesson_code;
+	info['lesson_code2'] = req.body.lesson_code2;
+	info['lesson_code3'] = req.body.lesson_code3;
 
 	Class.addLesson(info, function(err, lesson){
 		console.log('Lesson Added..');
