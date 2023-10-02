@@ -89,6 +89,20 @@
         {{lesson.lesson_code3}}
     </py-repl>
 
+    <form>
+        <h3>Quiz Question:</h3>
+        <p>What is the capital of France?</p>
+
+        <!-- Radio buttons for answer choices -->
+        <input type="radio" name="quiz" value="paris"> Paris<br>
+        <input type="radio" name="quiz" value="london"> London<br>
+        <input type="radio" name="quiz" value="berlin"> Berlin<br>
+        <input type="radio" name="quiz" value="madrid"> Madrid<br>
+
+        <!-- Button to submit the quiz -->
+        <input type="submit" value="Submit Answer">
+    </form>
+
     <!-- Define the afterPyReplExec function -->
     <script>
         // Variable to hold the accumulated console log

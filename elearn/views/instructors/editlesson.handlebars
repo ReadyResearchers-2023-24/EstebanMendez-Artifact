@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add your CSS and JavaScript includes here -->
+</head>
+<body>
+    <a href="/classes/{{lesson.class_id}}/lessons">Back to lesson</a>
+    <h2>Edit Lesson</h2>
+
+    <form id="editLessonForm" method="post" action="/instructors/classes/{{lesson.class_id}}/lessons/update/{{lesson._id}}">
+        <!-- Lesson Number Input -->
+        <div>
+            <label>Lesson Number:</label>
+            <input type="text" name="lesson_number" value="{{lesson.lesson_number}}">
+        </div>
+
+        <!-- Lesson Title Input -->
+        <div>
+            <label>Lesson Title:</label>
+            <input type="text" name="lesson_title" value="{{lesson.lesson_title}}">
+        </div>
+
+        <!-- Lesson Body Textarea -->
+        <div>
+            <label>Lesson Body:</label>
+            <textarea name="lesson_body">{{lesson.lesson_body}}</textarea>
+        </div>
+
+        <!-- Lesson Code Textarea -->
+        <div>
+            <label>Lesson Code:</label>
+            <textarea name="lesson_code">{{lesson.lesson_code}}</textarea>
+        </div>
+
+        <!-- Add any other fields you want to edit -->
+
+        <!-- Submit Button -->
+        <div>
+            <input type="submit" value="Update Lesson">
+        </div>
+    </form>
+</body>
+</html>
