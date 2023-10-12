@@ -23,6 +23,16 @@ Learning by doing is crucial in programming. We offer a coding environment where
 
 In addition to tutorials, ProgMagus provides videos explaining each of the lessons.
 
+## Before Getting Started
+
+For now, the database is running locally, it is being setup for online access anywhere.
+
+1. Install Mongosh for your computer and setup a db.
+   
+2. [Click here to install](https://www.mongodb.com/docs/mongodb-shell/)
+   
+3. Include this data in the database. (To be continued)
+
 ## Getting Started
 
 To begin your Python basics journey on ProgMagus and run the application locally, follow these steps:
