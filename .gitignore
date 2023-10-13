@@ -1,5 +1,8 @@
 # Ignore the entire "kickstart" directory
 /public/javascripts/kickstart/
 
+# Ignore the entire "javascripts" directory
+/public/javascripts/
+
 # Ignore the entire "fancybox" directory
 /public/stylesheets/img/fancybox/
