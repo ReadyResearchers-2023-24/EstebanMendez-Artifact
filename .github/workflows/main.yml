@@ -25,5 +25,4 @@ jobs:
         run: npm install
 
       - name: Run Linting
-        run: cd elearn
-        run: npm run lint
+        run: cd elearn, npm run lint
