@@ -22,4 +22,6 @@ jobs:
         run: npm install
 
       - name: Run Linting
-        run: npx standard
+        run: |
+          # Use the find command to exclude specific directories from linting
+          find . -type f -name "*.js" -not -path "./public/javascripts/kickstart/*" -not -path "./public/stylesheets/img/fancybox/*" | xargs npx standard
