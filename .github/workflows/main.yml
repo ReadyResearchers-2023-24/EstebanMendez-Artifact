@@ -18,11 +18,8 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Change Working Directory
-        run: cd elearn
-
       - name: Install Dependencies
         run: npm install
 
       - name: Run Linting
-        run: cd elearn, npm run lint
+        run: npm run lint
