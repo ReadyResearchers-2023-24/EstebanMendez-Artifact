@@ -6,3 +6,6 @@
 
 # Ignore the entire "fancybox" directory
 /public/stylesheets/img/fancybox/
+
+# Ignore the entire "app.js" directory
+app.js
