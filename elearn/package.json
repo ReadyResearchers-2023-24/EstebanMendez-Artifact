@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "lint": "standard"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -24,5 +25,8 @@
     "passport-http": "*",
     "passport-local": "*",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "standard": "^x.x.x"
   }
 }
