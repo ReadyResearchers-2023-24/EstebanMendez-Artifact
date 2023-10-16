@@ -52,3 +52,8 @@ Database runs on a server,
    ```
    npm start
    ```
+
+## ProgMagus:
+
+![HomePage](public/images/ProgMaguspic.png)
+
