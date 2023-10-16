@@ -1,13 +1,17 @@
-# EstebanMendez-Artifact - ProgMagus
+# EstebanMendez-Artifact - ProgMagus LMS
 
 ## Research Notebook
 https://github.com/orgs/ReadyResearchers-2023-24/discussions/19
 
-# ProgMagus - Learn Python Basics
+# ProgMagus LMS - Learn Python Basics
+
+<p align="center" width="100%">
+    <img width="33%" src="public/images/favicon.ico">
+</p>
 
 ## Overview
 
-Welcome to ProgMagus - Your gateway to learning the fundamentals of the Python programming language. This platform is designed to empower beginners to master Python basics in a structured and interactive manner. Whether you are a student, an aspiring developer, or simply curious about coding, ProgMagus is here to make Python learning accessible and enjoyable.
+Welcome to ProgMagus LMS - Your gateway to learning the fundamentals of the Python programming language. This platform is designed to empower beginners to master Python basics in a structured and interactive manner. Whether you are a student, an aspiring developer, or simply curious about coding, ProgMagus is here to make Python learning accessible and enjoyable.
 
 ## Features
 
@@ -53,7 +57,7 @@ Database runs on a server,
    npm start
    ```
 
-## ProgMagus:
+## ProgMagus LMS:
 
 ![HomePage](public/images/ProgMaguspic.png)
 
