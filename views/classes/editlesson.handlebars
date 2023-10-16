@@ -4,35 +4,57 @@
     <!-- Add your CSS and JavaScript includes here -->
 </head>
 <body>
-    <a href="/classes/{{lesson.class_id}}/lessons">Back to lesson</a>
+    <a href="/classes/{{class._id}}/lessons">Back to lesson</a>
     <h2>Edit Lesson</h2>
 
-    <form id="editLessonForm" method="post" action="/instructors/classes/{{lesson.class_id}}/lessons/update/{{lesson._id}}">
+    <form id="editLessonForm" method="post" action="/classes/{{class._id}}/lessons/{{lesson.lesson_number}}/edit">
         <!-- Lesson Number Input -->
-        <div>
+        <div class="span-6">
             <label>Lesson Number:</label>
             <input type="text" name="lesson_number" value="{{lesson.lesson_number}}">
         </div>
 
         <!-- Lesson Title Input -->
-        <div>
+        <div class="span-6">
             <label>Lesson Title:</label>
             <input type="text" name="lesson_title" value="{{lesson.lesson_title}}">
         </div>
 
         <!-- Lesson Body Textarea -->
-        <div>
+        <div class="span-12">
             <label>Lesson Body:</label>
             <textarea name="lesson_body">{{lesson.lesson_body}}</textarea>
         </div>
 
         <!-- Lesson Code Textarea -->
-        <div>
+        <div class="span-12">
             <label>Lesson Code:</label>
             <textarea name="lesson_code">{{lesson.lesson_code}}</textarea>
         </div>
 
-        <!-- Add any other fields you want to edit -->
+        <!-- Lesson Body Textarea -->
+        <div class="span-12">
+            <label>Lesson Body:</label>
+            <textarea name="lesson_body2">{{lesson.lesson_body}}</textarea>
+        </div>
+
+        <!-- Lesson Code Textarea -->
+        <div class="span-12">
+            <label>Lesson Code:</label>
+            <textarea name="lesson_code2">{{lesson.lesson_code}}</textarea>
+        </div>
+
+        <!-- Lesson Body Textarea -->
+        <div class="span-12">
+            <label>Lesson Body:</label>
+            <textarea name="lesson_body3">{{lesson.lesson_body}}</textarea>
+        </div>
+
+        <!-- Lesson Code Textarea -->
+        <div class="span-12">
+            <label>Lesson Code:</label>
+            <textarea name="lesson_code3">{{lesson.lesson_code}}</textarea>
+        </div>
 
         <!-- Submit Button -->
         <div>

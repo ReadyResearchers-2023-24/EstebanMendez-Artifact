@@ -38,58 +38,43 @@
     <a href="/classes/{{class._id}}/lessons">Back to lessons</a>
     <h2>{{lesson.lesson_title}}</h2>
 
-
-    <!-- Add this code to display the "Edit Lesson" button for instructors -->
-    
-
-
+    <!-- Display Lesson 1 -->
     <p> </p>
-
     {{lesson.lesson_body}}
-
     <p> </p>
-
-    {{!-- <h4>Python Code Editor</h4> --}}
-    <py-config>
-        plugins = [
-            "https://pyscript.net/latest/plugins/python/py_tutor.py"
-        ]
-    </py-config>
-    {{!-- <p>User ctrl + Shift to run!</p> --}}
-    <div class="py-repl-container"> <!-- Use a container to control layout -->
+    <div id="lessonResult1" style="color: red;"></div>
+    <div class="py-repl-container">
         <py-repl id="my-repl">
             {{lesson.lesson_code}}
         </py-repl>
         <py-splashscreen style="display: none;"></py-splashscreen>
         <py-terminal auto="" docked="" style="display: none;" class="py-terminal-docked"><pre class="py-terminal"></pre></py-terminal>
     </div>
-    
-    <div id="replOutput"></div>
 
-    <!-- Result Display -->
-    <div id="result" style="color: red;"></div>
-
+    <!-- Display Lesson 2 -->
     <p> </p>
-
     {{lesson.lesson_body2}}
-
     <p> </p>
+    <div id="lessonResult2" style="color: red;"></div>
+    <div class="py-repl-container">
+        <py-repl id="my-repl2">
+            {{lesson.lesson_code2}}
+        </py-repl>
+    </div>
 
-    <py-repl id="my-repl2">
-        {{lesson.lesson_code2}}
-    </py-repl>
-
+    <!-- Display Lesson 3 -->
     <p> </p>
-
     {{lesson.lesson_body3}}
-
     <p> </p>
+    <div id="lessonResult3" style="color: red;"></div>
+    <div class="py-repl-container">
+        <py-repl id="my-repl3">
+            {{lesson.lesson_code3}}
+        </py-repl>
+    </div>
 
-    <py-repl id="my-repl3">
-        {{lesson.lesson_code3}}
-    </py-repl>
 
-    <form>
+     <form>
         <h3>Quiz Question:</h3>
         <p>What is the capital of France?</p>
 
@@ -103,59 +88,127 @@
         <input type="submit" value="Submit Answer">
     </form>
 
-    <!-- Define the afterPyReplExec function -->
+    <!-- Define the afterPyReplExec function for Lesson 1 -->
     <script>
-        // Variable to hold the accumulated console log
-        var consoleLog = '';
-        // Variable to track whether the result has been set to "Correct"
-        var resultIsCorrect = false;
+        var consoleLog1 = '';
+        var resultIsCorrect1 = false;
 
-        // Function to continuously capture and process the console log
-        function continuouslyCaptureConsoleLog() {
+        function continuouslyCaptureConsoleLog1() {
             var originalLog = console.log;
             console.log = function (message) {
-                // Append the new message to the consoleLog
-                consoleLog += message + '\n';
+                consoleLog1 += message + '\n';
                 originalLog.apply(console, arguments);
             };
 
-            // Set an interval to periodically process the console log
             var intervalId = setInterval(function () {
-                // Delay the processing of the console log to avoid capturing while PyRepl is running
                 setTimeout(function () {
                     console.log = originalLog;
-                    // Process the consoleLog content here
-                    processConsoleLog(consoleLog);
-                    // Clear the console log to avoid reprocessing the same log
-                    consoleLog = '';
-                }, 1000); // Delay for 1 second (adjust as needed)
-            }, 500); // Interval between log processing (adjust as needed)
+                    processConsoleLog1(consoleLog1);
+                    consoleLog1 = '';
+                }, 1000);
+            }, 500);
         }
 
-        // Function to process the captured console log
-        function processConsoleLog(log) {
-            var expected_output = "Hello Python!"; // Replace with your expected output
+        function processConsoleLog1(log) {
+            var expected_output = "Hello Python!"; // Replace with the expected output for Lesson 1
 
-            // Check if the result has already been set to "Correct"
-            if (resultIsCorrect) {
-                return; // Don't change the result if it's already correct
+            if (resultIsCorrect1) {
+                return;
             }
 
-            // Check if the log contains the expected output
             if (log.includes(expected_output)) {
-                document.getElementById("result").textContent = "Correct";
-                document.getElementById("result").style.color = "green";
-                // Set the resultIsCorrect variable to true
-                resultIsCorrect = true;
+                document.getElementById("lessonResult1").textContent = "Correct";
+                document.getElementById("lessonResult1").style.color = "green";
+                resultIsCorrect1 = true;
             } else {
-                document.getElementById("result").textContent = "Incorrect. Please try again.";
-                document.getElementById("result").style.color = "red";
+                document.getElementById("lessonResult1").textContent = "Incorrect. Please try again.";
+                document.getElementById("lessonResult1").style.color = "red";
             }
         }
 
-        // Call the continuouslyCaptureConsoleLog function to start capturing and processing console log
-        continuouslyCaptureConsoleLog();
+        continuouslyCaptureConsoleLog1();
     </script>
 
+    <!-- Define the afterPyReplExec function for Lesson 2 -->
+    <script>
+        var consoleLog2 = '';
+        var resultIsCorrect2 = false;
+
+        function continuouslyCaptureConsoleLog2() {
+            var originalLog = console.log;
+            console.log = function (message) {
+                consoleLog2 += message + '\n';
+                originalLog.apply(console, arguments);
+            };
+
+            var intervalId = setInterval(function () {
+                setTimeout(function () {
+                    console.log = originalLog;
+                    processConsoleLog2(consoleLog2);
+                    consoleLog2 = '';
+                }, 1000);
+            }, 500);
+        }
+
+        function processConsoleLog2(log) {
+            var expected_output = "Hello Python?"; // Replace with the expected output for Lesson 2
+
+            if (resultIsCorrect2) {
+                return;
+            }
+
+            if (log.includes(expected_output)) {
+                document.getElementById("lessonResult2").textContent = "Correct";
+                document.getElementById("lessonResult2").style.color = "green";
+                resultIsCorrect2 = true;
+            } else {
+                document.getElementById("lessonResult2").textContent = "Incorrect. Please try again.";
+                document.getElementById("lessonResult2").style.color = "red";
+            }
+        }
+
+        continuouslyCaptureConsoleLog2();
+    </script>
+
+    <!-- Define the afterPyReplExec function for Lesson 3 -->
+    <script>
+        var consoleLog3 = '';
+        var resultIsCorrect3 = false;
+
+        function continuouslyCaptureConsoleLog3() {
+            var originalLog = console.log;
+            console.log = function (message) {
+                consoleLog3 += message + '\n';
+                originalLog.apply(console, arguments);
+            };
+
+            var intervalId = setInterval(function () {
+                setTimeout(function () {
+                    console.log = originalLog;
+                    processConsoleLog3(consoleLog3);
+                    consoleLog3 = '';
+                }, 1000);
+            }, 500);
+        }
+
+        function processConsoleLog3(log) {
+            var expected_output = "Hello Python."; // Replace with the expected output for Lesson 3
+
+            if (resultIsCorrect3) {
+                return;
+            }
+
+            if (log.includes(expected_output)) {
+                document.getElementById("lessonResult3").textContent = "Correct";
+                document.getElementById("lessonResult3").style.color = "green";
+                resultIsCorrect3 = true;
+            } else {
+                document.getElementById("lessonResult3").textContent = "Incorrect. Please try again.";
+                document.getElementById("lessonResult3").style.color = "red";
+            }
+        }
+
+        continuouslyCaptureConsoleLog3();
+    </script>
 </body>
 </html>
