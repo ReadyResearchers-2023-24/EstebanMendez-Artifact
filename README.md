@@ -23,15 +23,6 @@ Learning by doing is crucial in programming. We offer a coding environment where
 
 In addition to tutorials, ProgMagus provides videos explaining each of the lessons.
 
-## Before Getting Started
-
-For now, the database is running locally, it is being setup for online access anywhere.
-
-1. Install Mongosh for your computer and setup a db.
-   
-2. [Click here to install](https://www.mongodb.com/docs/mongodb-shell/)
-   
-3. Include this data in the database. (To be continued)
 
 ## Getting Started
 
@@ -42,9 +33,18 @@ To begin your Python basics journey on ProgMagus and run the application locally
 2. Go to the main folder of the project:
    ```
    cd EstebanMendez-Artifact
-   cd elearn
    ```
-3. Install the dependencies:
+Database runs on a server,
+
+3. Create a `.env` file in the root of your cloned repository
+
+4. Include this line with the password or contact me to add you to the server access.
+   ```
+   MONGO_PASSWORD=xxxxxxx
+   ```
+5. Save it and run the next commands
+   
+6. Install the dependencies:
    ```
    npm install
    ```
