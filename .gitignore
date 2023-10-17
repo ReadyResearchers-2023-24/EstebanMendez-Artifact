@@ -12,3 +12,6 @@ app.js
 
 # Ignore the entire "models/" directory
 /models/
+
+# Ignore the entire "routes/" directory
+/routes/
