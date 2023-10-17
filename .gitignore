@@ -9,3 +9,6 @@
 
 # Ignore the entire "app.js" directory
 app.js
+
+# Ignore the entire "models/" directory
+/models/

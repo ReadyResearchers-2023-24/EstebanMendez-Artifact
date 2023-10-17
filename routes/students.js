@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-Class = require('../models/class')
-Student = require('../models/student')
-User = require('../models/user')
+var Class = require('../models/class')
+var Student = require('../models/student')
+var User = require('../models/user')
 
 router.get('/classes', function (req, res, next) {
   Student.getStudentByUsername(req.user.username, function (err, student) {
