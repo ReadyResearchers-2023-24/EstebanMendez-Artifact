@@ -4,8 +4,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "lint": "standard",
-    "build": "npm run build:prod",
-    "build:prod": "node ./bin/www"
+    "build": "node app.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
