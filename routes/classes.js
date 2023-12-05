@@ -1,10 +1,35 @@
 const express = require('express');
 const router = express.Router();
-
 const Class = require('../models/class');
+const fs = require('fs');
+const path = require('path');
+
+// Middleware function to log user activities
+function logUserActivity(username, activity) {
+  const logMessage = `${new Date().toISOString()} - User: ${username}, Activity: ${activity}\n`;
+  const logFolderPath = path.join(__dirname, '..', 'reports');
+  const logFilePath = path.join(logFolderPath, `${username}_activity_log.txt`);
+
+  // Ensure the 'reports' folder exists
+  if (!fs.existsSync(logFolderPath)) {
+    fs.mkdirSync(logFolderPath);
+  }
+
+  // Log the activity
+  fs.appendFileSync(logFilePath, logMessage, 'utf8');
+}
+
+// Middleware to check if the user is logged in
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/');
+}
 
 // Classes Page
 router.get('/', function (req, res, next) {
+  logUserActivity(req.user.username, 'Accessed Classes Page');
   Class.getClasses(function (err, classes) {
     if (err) throw err;
     res.render('classes/index', { classes });
@@ -13,6 +38,7 @@ router.get('/', function (req, res, next) {
 
 // Class Details
 router.get('/:id/details', function (req, res, next) {
+  // Add activity logging if needed
   Class.getClassById(req.params.id, function (err, classname) {
     if (err) throw err;
     res.render('classes/details', { class: classname });
@@ -21,6 +47,7 @@ router.get('/:id/details', function (req, res, next) {
 
 // Get Lessons
 router.get('/:id/lessons', function (req, res, next) {
+  logUserActivity(req.user.username, 'Accessed Lessons Page');
   Class.getClassById(req.params.id, function (err, classname) {
     if (err) throw err;
     res.render('classes/lessons', { class: classname });
@@ -29,6 +56,7 @@ router.get('/:id/lessons', function (req, res, next) {
 
 // Get Lesson
 router.get('/:id/lessons/:lesson_id', function (req, res, next) {
+  logUserActivity(req.user.username, 'Accessed Lesson');
   Class.getClassById(req.params.id, function (err, classname) {
     let lesson;
     if (err) throw err;
@@ -44,6 +72,7 @@ router.get('/:id/lessons/:lesson_id', function (req, res, next) {
 
 // GET request to render the lesson as raw HTML for editing
 router.get('/:id/lessons/:lesson_id/edit', function (req, res, next) {
+  logUserActivity(req.user.username, 'Accessed Edit Lesson Page');
   Class.getClassById(req.params.id, function (err, classname) {
     let lesson;
     if (err) throw err;
@@ -96,6 +125,5 @@ router.post('/:id/lessons/:lesson_number/edit', function (req, res, next) {
     }
   });
 });
-
 
 module.exports = router;

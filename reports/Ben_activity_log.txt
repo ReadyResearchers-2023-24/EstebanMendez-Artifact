@@ -1,0 +1,6 @@
+2023-12-04T07:37:51.240Z - User: Ben, Activity: Provided correct password
+2023-12-04T07:37:51.241Z - User: Ben, Activity: Logged In
+2023-12-04T07:37:53.664Z - User: Ben, Activity: Accessed Lessons Page
+2023-12-04T07:37:56.500Z - User: Ben, Activity: Accessed Lesson
+2023-12-04T07:38:05.205Z - User: Ben, Activity: Accessed Lessons Page
+2023-12-04T07:38:06.834Z - User: Ben, Activity: Logged Out

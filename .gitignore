@@ -15,3 +15,8 @@ app.js
 
 # Ignore the entire "routes/" directory
 /routes/
+
+.env
+
+# Local Netlify folder
+.netlify
