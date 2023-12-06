@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "lint": "standard",
-    "build": "npm install && npm start"
+    "lint": "standard"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -30,8 +29,6 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "standard": "^x.x.x",
-    "webpack": "^5.0.0",
-    "webpack-cli": "^4.0.0"
+    "standard": "^x.x.x"
   }
 }
