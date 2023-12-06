@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "lint": "standard"
+    "lint": "standard",
+    "build": "node app.js"
   },
   "dependencies": {
     "async": "^3.0.12",
