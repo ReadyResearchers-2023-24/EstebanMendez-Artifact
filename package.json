@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "lint": "standard",
-    "build": "node ./bin/www"
+    "lint": "standard"
   },
   "dependencies": {
     "async": "^3.0.12",
