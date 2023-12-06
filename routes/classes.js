@@ -13,61 +13,61 @@ router.get('/', function (req, res, next) {
 
 // Class Details
 router.get('/:id/details', function (req, res, next) {
-  Class.getClassById(req.params.id, function (err, classname) {
+  Class.getClassById(req.params.id, function (err, className) {
     if (err) throw err;
-    res.render('classes/details', { class: classname });
+    res.render('classes/details', { class: className });
   });
 });
 
 // Get Lessons
 router.get('/:id/lessons', function (req, res, next) {
-  Class.getClassById(req.params.id, function (err, classname) {
+  Class.getClassById(req.params.id, function (err, className) {
     if (err) throw err;
-    res.render('classes/lessons', { class: classname });
+    res.render('classes/lessons', { class: className });
   });
 });
 
 // Get Lesson
 router.get('/:id/lessons/:lesson_id', function (req, res, next) {
-  Class.getClassById(req.params.id, function (err, classname) {
+  Class.getClassById(req.params.id, function (err, className) {
     let lesson;
     if (err) throw err;
-    for (let i = 0; i < classname.lessons.length; i++) {
-      if (classname.lessons[i].lesson_number == req.params.lesson_id) {
-        lesson = classname.lessons[i];
+    for (let i = 0; i < className.lessons.length; i++) {
+      if (className.lessons[i].lesson_number == req.params.lesson_id) {
+        lesson = className.lessons[i];
         break;
       }
     }
-    res.render('classes/lesson', { class: classname, lesson });
+    res.render('classes/lesson', { class: className, lesson });
   });
 });
 
 // GET request to render the lesson as raw HTML for editing
 router.get('/:id/lessons/:lesson_id/edit', function (req, res, next) {
-  Class.getClassById(req.params.id, function (err, classname) {
+  Class.getClassById(req.params.id, function (err, className) {
     let lesson;
     if (err) throw err;
-    for (let i = 0; i < classname.lessons.length; i++) {
-      if (classname.lessons[i].lesson_number == req.params.lesson_id) {
-        lesson = classname.lessons[i];
+    for (let i = 0; i < className.lessons.length; i++) {
+      if (className.lessons[i].lesson_number == req.params.lesson_id) {
+        lesson = className.lessons[i];
         break;
       }
     }
-    res.render('classes/editlesson', { class: classname, lesson });
+    res.render('classes/editlesson', { class: className, lesson });
   });
 });
 
 // POST request to update the lesson content
 router.post('/:id/lessons/:lesson_number/edit', function (req, res, next) {
   // Retrieve the class by classId
-  Class.getClassById(req.params.id, function (err, classname) {
+  Class.getClassById(req.params.id, function (err, className) {
     if (err) throw err;
 
     // Find the lesson by lesson_number
     let lesson;
-    for (let i = 0; i < classname.lessons.length; i++) {
-      if (classname.lessons[i].lesson_number == req.params.lesson_number) {
-        lesson = classname.lessons[i];
+    for (let i = 0; i < className.lessons.length; i++) {
+      if (className.lessons[i].lesson_number == req.params.lesson_number) {
+        lesson = className.lessons[i];
         break;
       }
     }
@@ -87,7 +87,7 @@ router.post('/:id/lessons/:lesson_number/edit', function (req, res, next) {
       lesson.lesson_code3 = req.body.lesson_code3;
 
       // Save the updated lesson to the database
-      classname.save(function (err) {
+      className.save(function (err) {
         if (err) throw err;
 
         // Redirect to the lessons page after successfully updating the lesson
@@ -96,6 +96,5 @@ router.post('/:id/lessons/:lesson_number/edit', function (req, res, next) {
     }
   });
 });
-
 
 module.exports = router;
