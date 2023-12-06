@@ -4,3 +4,7 @@
 2023-12-04T07:37:56.500Z - User: Ben, Activity: Accessed Lesson
 2023-12-04T07:38:05.205Z - User: Ben, Activity: Accessed Lessons Page
 2023-12-04T07:38:06.834Z - User: Ben, Activity: Logged Out
+2023-12-06T03:53:06.907Z - User: Ben, Activity: Provided correct password
+2023-12-06T03:53:06.908Z - User: Ben, Activity: Logged In
+2023-12-06T03:53:08.568Z - User: Ben, Activity: Accessed Classes Page
+2023-12-06T03:53:10.758Z - User: Ben, Activity: Logged Out
