@@ -3,7 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const { engine } = require('express-handlebars');
+const exphbs = require('express-handlebars');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const session = require('express-session');
@@ -26,7 +26,7 @@ const app = express();
 
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
+app.engine('handlebars', exphbs.engine({ defaultLayout: "main"}));
 app.set('view engine', 'handlebars');
 
 // Middleware and configurations
