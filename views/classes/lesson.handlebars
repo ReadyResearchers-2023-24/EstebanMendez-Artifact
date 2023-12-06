@@ -34,6 +34,15 @@
         }
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{process.env.G_ANALYTICS}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', process.env.G_ANALYTICS);
+</script>
 <body>
     <a href="/classes/{{class._id}}/lessons">Back to lessons</a>
     <h2>{{lesson.lesson_title}}</h2>

@@ -1,3 +1,12 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{process.env.G_ANALYTICS}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', process.env.G_ANALYTICS);
+</script>
 <h2>{{student.first_name}}'s Classes</h2>
 <table cellspacing="0" cellpadding="0">
 	<thead>
