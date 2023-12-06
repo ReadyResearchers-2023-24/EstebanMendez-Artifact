@@ -26,7 +26,7 @@ const app = express();
 
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', express-handlebars({ defaultLayout: 'layout' }));
+app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
 app.set('view engine', 'handlebars');
 
 // Middleware and configurations
