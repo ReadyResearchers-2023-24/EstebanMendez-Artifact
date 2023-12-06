@@ -8,6 +8,7 @@
     "build": "node ./bin/www"
   },
   "dependencies": {
+    "async": "^3.0.12",
     "bcrypt": "^5.1.1",
     "bcryptjs": "*",
     "body-parser": "~1.13.2",
