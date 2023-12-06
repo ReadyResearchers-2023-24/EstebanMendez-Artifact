@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "lint": "standard"
+    "lint": "standard",
+    "build": "node ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
