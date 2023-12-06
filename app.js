@@ -93,6 +93,16 @@ mongoose.connect(`mongodb+srv://mendez01:${process.env.MONGO_PASSWORD}@cluster0.
   authMechanism: 'DEFAULT'
 });
 
+// Middleware to set global variables for all views, including G_ANALYTICS
+app.use((req, res, next) => {
+  res.locals.analyticsId = process.env.G_ANALYTICS; // Add this line
+  res.locals.user = req.user || null;
+  if (req.user) {
+    res.locals.type = req.user.type;
+  }
+  next();
+});
+
 // Routes
 app.use('/', routes);
 app.use('/users', users);
