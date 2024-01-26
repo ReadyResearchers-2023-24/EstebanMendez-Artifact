@@ -56,6 +56,11 @@ Database runs on a server,
    ```
    npm start
    ```
+## Access Website
+
+Here is the link for the website
+
+[ProgMagus LMS](https://progmagus.chompe.rs/)
 
 ## ProgMagus LMS:
 
