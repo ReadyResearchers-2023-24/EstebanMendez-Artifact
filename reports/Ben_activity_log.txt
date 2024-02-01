@@ -12,3 +12,13 @@
 2023-12-06T07:41:53.538Z - User: Ben, Activity: Logged In
 2023-12-06T19:20:20.171Z - User: Ben, Activity: Provided correct password
 2023-12-06T19:20:20.176Z - User: Ben, Activity: Logged In
+2024-01-29T23:34:27.022Z - User: Ben, Activity: Provided correct password
+2024-01-29T23:34:27.025Z - User: Ben, Activity: Logged In
+2024-02-01T05:38:53.983Z - User: Ben, Activity: Provided correct password
+2024-02-01T05:38:53.987Z - User: Ben, Activity: Logged In
+2024-02-01T06:19:19.397Z - User: Ben, Activity: Logged Out
+2024-02-01T06:19:25.258Z - User: Ben, Activity: Provided correct password
+2024-02-01T06:19:25.259Z - User: Ben, Activity: Logged In
+2024-02-01T06:19:33.562Z - User: Ben, Activity: Logged Out
+2024-02-01T06:19:45.823Z - User: Ben, Activity: Provided correct password
+2024-02-01T06:19:45.824Z - User: Ben, Activity: Logged In
