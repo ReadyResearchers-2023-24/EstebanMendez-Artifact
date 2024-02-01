@@ -21,8 +21,20 @@
 			<tr>
 				<td>{{class_id}}</td>
 				<td>{{class_title}}</td>
-				<td><a href="/classes/{{class_id}}/lessons">View Lessons</a></td>
+				<td><a class="view_lessons" href="/classes/{{class_id}}/lessons"><button>View Lessons</button></a></td>
 			</tr>
 		{{/each}}
 	</tbody>
 </table>
+<style>
+.view_lessons {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+.view_lessons button {
+    @include button();
+    @include button-color('#6495ed');
+    cursor: pointer; /* Ensure cursor changes on hover */
+}
+</style>
