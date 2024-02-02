@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Class = require('../models/class');
+const { checkInstructor } = require('../middleware/middleware');
 
 // Classes Page
 router.get('/', function (req, res, next) {
@@ -43,7 +44,7 @@ router.get('/:id/lessons/:lesson_id', function (req, res, next) {
 });
 
 // GET request to render the lesson as raw HTML for editing
-router.get('/:id/lessons/:lesson_id/edit', function (req, res, next) {
+router.get('/:id/lessons/:lesson_id/edit', checkInstructor, (req, res, next) => {
   Class.getClassById(req.params.id, function (err, className) {
     let lesson;
     if (err) throw err;
@@ -58,7 +59,7 @@ router.get('/:id/lessons/:lesson_id/edit', function (req, res, next) {
 });
 
 // POST request to update the lesson content
-router.post('/:id/lessons/:lesson_number/edit', function (req, res, next) {
+router.post('/:id/lessons/:lesson_number/edit', checkInstructor, (req, res, next) => {
   // Retrieve the class by classId
   Class.getClassById(req.params.id, function (err, className) {
     if (err) throw err;
@@ -85,6 +86,9 @@ router.post('/:id/lessons/:lesson_number/edit', function (req, res, next) {
       lesson.lesson_code = req.body.lesson_code;
       lesson.lesson_code2 = req.body.lesson_code2;
       lesson.lesson_code3 = req.body.lesson_code3;
+      lesson.lesson_result_script1 = req.body.lessson_result_script1;
+      lesson.lesson_result_script2 = req.body.lessson_result_script2;
+      lesson.lesson_result_script3 = req.body.lessson_result_script3;
 
       // Save the updated lesson to the database
       className.save(function (err) {

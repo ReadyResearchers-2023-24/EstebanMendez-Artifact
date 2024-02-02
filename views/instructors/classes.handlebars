@@ -13,11 +13,23 @@
             <tr>
                 <td>{{class_id}}</td>
                 <td>{{class_title}}</td>
-                <td><a href="/classes/{{class_id}}/lessons">View Lessons</a></td>
+                <td><a class="view_lesson" href="/classes/{{class_id}}/lessons"><button>View Lessons</button></a></td>
                 <td>
-                    <a href="/instructors/classes/{{class_id}}/lessons/new">Add Lesson</a>
+                    <a class="view_lesson" href="/instructors/classes/{{class_id}}/lessons/new"><button>Add Lesson</button></a>
                 </td>
             </tr>
         {{/each}}
     </tbody>
 </table>
+<style>
+.view_lesson {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+.view_lesson button {
+    @include button();
+    @include button-color('#6495ed');
+    cursor: pointer; /* Ensure cursor changes on hover */
+}
+</style>
