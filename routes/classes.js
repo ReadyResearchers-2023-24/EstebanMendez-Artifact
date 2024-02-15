@@ -20,13 +20,29 @@ router.get('/:id/details', function (req, res, next) {
   });
 });
 
+// // Get Lessons
+// router.get('/:id/lessons', function (req, res, next) {
+//   Class.getClassById(req.params.id, function (err, className) {
+//     if (err) throw err;
+//     res.render('classes/lessons', { class: className });
+//   });
+// });
+
 // Get Lessons
 router.get('/:id/lessons', function (req, res, next) {
   Class.getClassById(req.params.id, function (err, className) {
     if (err) throw err;
-    res.render('classes/lessons', { class: className });
+    
+    // Determine if the user is an instructor
+    const isInstructor = req.user && req.user.type === 'instructor';
+
+    res.render('classes/lessons', { class: className, isInstructor });
+
+    // Save changes to the session after rendering the template
+    req.session.save();
   });
 });
+
 
 // Get Lesson
 router.get('/:id/lessons/:lesson_id', function (req, res, next) {

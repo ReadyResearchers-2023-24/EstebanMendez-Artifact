@@ -23,8 +23,10 @@
 				<td>{{lesson_number}}</td>
 				<td>{{lesson_title}}</td>
 				<td><a class="view_lesson" href="/classes/{{../class._id}}/lessons/{{lesson_number}}"><button>View Lesson</button></a></td>
+				{{#if isInstructor}}
 				<!-- "Edit Lesson" button for instructors -->
-  				{{!-- <td><a class="view_lesson" href="/classes/{{../class._id}}/lessons/{{lesson_number}}/edit"><button>Edit Lesson</button></a></td> --}}
+  				<td><a class="view_lesson" href="/classes/{{../class._id}}/lessons/{{lesson_number}}/edit"><button>Edit Lesson</button></a></td>
+				{{/if}}
 			</tr>
 		{{/each}}
 	</tbody>
