@@ -9,28 +9,56 @@
 </script>
 
 <h2>{{class.title}}'s Classes</h2>
-<table cellspacing="0" cellpadding="0">
-	<thead>
-		<tr>
-			<th>Lesson Number</th>
-			<th>Lesson Title</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		{{#each class.lessons}}
-			<tr>
-				<td>{{lesson_number}}</td>
-				<td>{{lesson_title}}</td>
-				<td><a class="view_lesson" href="/classes/{{../class._id}}/lessons/{{lesson_number}}"><button>View Lesson</button></a></td>
-				{{#if isInstructor}}
-				<!-- "Edit Lesson" button for instructors -->
-  				<td><a class="view_lesson" href="/classes/{{../class._id}}/lessons/{{lesson_number}}/edit"><button>Edit Lesson</button></a></td>
-				{{/if}}
-			</tr>
-		{{/each}}
-	</tbody>
-</table>
+
+<div style="display: flex; align-items: flex-start;">
+
+    <div style="flex: 3;">
+        <table cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>Lesson Number</th>
+                    <th>Lesson Title</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each class.lessons}}
+                    <tr>
+                        <td>{{lesson_number}}</td>
+                        <td>{{lesson_title}}</td>
+                        <td><a class="view_lesson" href="/classes/{{../class._id}}/lessons/{{lesson_number}}"><button>View Lesson</button></a></td>
+                        {{#if isInstructor}}
+                        <!-- "Edit Lesson" button for instructors -->
+                        <td><a class="view_lesson" href="/classes/{{../class._id}}/lessons/{{lesson_number}}/edit"><button>Edit Lesson</button></a></td>
+                        {{/if}}
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <div style="flex: 1;">
+        <table cellspacing="0" cellpadding="0">
+            <tbody>
+                {{#if isInstructor}}
+					<thead>
+                		<tr>
+                    		<th>Edit Lesson</th>
+						</tr>
+					</thead>
+                    {{#each class.lessons}}
+                        <tr>
+                            <!-- "Edit Lesson" button for instructors -->
+                            <td><a class="view_lesson" href="/classes/{{../class._id}}/lessons/{{lesson_number}}/edit"><button>Edit Lesson</button></a></td>
+                        </tr>
+                    {{/each}}
+                {{/if}}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
 <style>
 .view_lesson {
     display: inline-block;
@@ -43,6 +71,7 @@
     cursor: pointer; /* Ensure cursor changes on hover */
 }
 </style>
+
 <script>
   console.log("isInstructor value:", {{isInstructor}});
 </script>
