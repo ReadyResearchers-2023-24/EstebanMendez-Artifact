@@ -20,9 +20,9 @@ const ClassSchema = mongoose.Schema({
     lesson_code: { type: String },
     lesson_code2: { type: String },
     lesson_code3: { type: String },
-    lessson_result_script1: { type: String },
-    lessson_result_script2: { type: String },
-    lessson_result_script3: { type: String }
+    lesson_result_script1: { type: String },
+    lesson_result_script2: { type: String },
+    lesson_result_script3: { type: String }
   }]
 })
 
@@ -49,13 +49,13 @@ module.exports.addLesson = function (info, callback) {
   lesson_code = info.lesson_code
   lesson_code2 = info.lesson_code2
   lesson_code3 = info.lesson_code3
-  lessson_result_script1 = info.lessson_result_script1
-  lessson_result_script2 = info.lessson_result_script2
-  lessson_result_script3 = info.lessson_result_script3
+  lesson_result_script1 = info.lesson_result_script1
+  lesson_result_script2 = info.lesson_result_script2
+  lesson_result_script3 = info.lesson_result_script3
 
   Class.findByIdAndUpdate(
     class_id,
-    { $push: { lessons: { lesson_number, lesson_title, lesson_body, lesson_body2, lesson_body3, lesson_code, lesson_code2, lesson_code3, lessson_result_script1, lessson_result_script2, lessson_result_script3 } } },
+    { $push: { lessons: { lesson_number, lesson_title, lesson_body, lesson_body2, lesson_body3, lesson_code, lesson_code2, lesson_code3, lesson_result_script1, lesson_result_script2, lesson_result_script3 } } },
     { safe: true, upsert: true },
     callback
   )
