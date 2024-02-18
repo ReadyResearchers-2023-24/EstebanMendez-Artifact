@@ -102,9 +102,9 @@ router.post('/:id/lessons/:lesson_number/edit', checkInstructor, (req, res, next
       lesson.lesson_code = req.body.lesson_code;
       lesson.lesson_code2 = req.body.lesson_code2;
       lesson.lesson_code3 = req.body.lesson_code3;
-      lesson.lesson_result_script1 = req.body.lessson_result_script1;
-      lesson.lesson_result_script2 = req.body.lessson_result_script2;
-      lesson.lesson_result_script3 = req.body.lessson_result_script3;
+      lesson.lesson_result_script1 = req.body.lesson_result_script1;
+      lesson.lesson_result_script2 = req.body.lesson_result_script2;
+      lesson.lesson_result_script3 = req.body.lesson_result_script3;
 
       // Save the updated lesson to the database
       className.save(function (err) {
