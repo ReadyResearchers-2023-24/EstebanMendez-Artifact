@@ -12,21 +12,6 @@ const Student = require('../models/student')
 // Include Instructor Model
 const Instructor = require('../models/instructor')
 
-// Middleware function to log user activities
-function logUserActivity (username, activity) {
-  const logMessage = `${new Date().toISOString()} - User: ${username}, Activity: ${activity}\n`
-  const logFolderPath = path.join(__dirname, '..', 'reports')
-  const logFilePath = path.join(logFolderPath, `${username}_activity_log.txt`)
-
-  // Ensure the 'reports' folder exists
-  if (!fs.existsSync(logFolderPath)) {
-    fs.mkdirSync(logFolderPath)
-  }
-
-  // Log the activity
-  fs.appendFileSync(logFilePath, logMessage, 'utf8')
-}
-
 // Middleware to check if the user is logged in
 function isLoggedIn (req, res, next) {
   if (req.isAuthenticated()) {
@@ -80,7 +65,7 @@ router.post('/register', function (req, res, next) {
 
     if (type == 'student') {
       console.log('Registering Student...')
-      logUserActivity(username, 'Registered as Student')
+      console.log(username, 'Registered as Student')
 
       const newStudent = new Student({
         first_name,
@@ -100,7 +85,7 @@ router.post('/register', function (req, res, next) {
       })
     } else {
       console.log('Registering Instructor...')
-      logUserActivity(username, 'Registered as Instructor')
+      console.log(username, 'Registered as Instructor')
 
       const newInstructor = new Instructor({
         first_name,
@@ -138,7 +123,7 @@ passport.deserializeUser(function (id, done) {
 router.post('/login', passport.authenticate('local', { failureRedirect: '/', failureFlash: true }), function (req, res, next) {
   req.flash('success_msg', 'You are now logged in')
   const usertype = req.user.type
-  logUserActivity(req.user.username, 'Logged In')
+  console.log(req.user.username, 'Logged In')
   res.redirect('/' + usertype + 's/classes')
 })
 
@@ -153,12 +138,12 @@ passport.use(new LocalStrategy(
       User.comparePassword(password, user.password, function (err, isMatch) {
         if (err) return done(err)
         if (isMatch) {
-          logUserActivity(username, 'Provided correct password')
+          console.log(username, 'Provided correct password')
           return done(null, user)
         } else {
           console.log('Invalid Password')
           // Success Message
-          logUserActivity(username, 'Provided incorrect password')
+          console.log(username, 'Provided incorrect password')
           return done(null, false, { message: 'Invalid password' })
         }
       })
@@ -169,7 +154,7 @@ passport.use(new LocalStrategy(
 // Log User Out
 router.get('/logout', isLoggedIn, function (req, res) {
   const username = req.user.username
-  logUserActivity(username, 'Logged Out')
+  console.log(username, 'Logged Out')
   req.logout()
   // Success Message
   req.flash('success_msg', 'You have logged out')
@@ -178,7 +163,7 @@ router.get('/logout', isLoggedIn, function (req, res) {
 
 // Get Classes Page
 router.get('/students/classes', isLoggedIn, function (req, res, next) {
-  logUserActivity(req.user.username, 'Accessed Classes Page')
+  console.log(req.user.username, 'Accessed Classes Page')
   Student.getStudentByUsername(req.user.username, function (err, student) {
     if (err) throw err
     res.render('students/classes', { student })
@@ -191,7 +176,7 @@ router.post('/students/classes/register', isLoggedIn, function (req, res) {
   const class_id = req.body.class_id
   const class_title = req.body.class_title
 
-  logUserActivity(student_username, `Registered for Class: ${class_title}`)
+  console.log(student_username, `Registered for Class: ${class_title}`)
 
   // Check if the student is already registered for the class
   Student.getStudentByUsername(student_username, function (err, student) {
@@ -228,7 +213,7 @@ router.post('/students/classes/register', isLoggedIn, function (req, res) {
 
 // Example of a protected route
 router.get('/protected', isLoggedIn, function (req, res) {
-  logUserActivity(req.user.username, 'Accessed Protected Route')
+  console.log(req.user.username, 'Accessed Protected Route')
   res.send('You have accessed the protected route.')
 })
 
