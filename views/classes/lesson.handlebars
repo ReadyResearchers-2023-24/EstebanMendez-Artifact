@@ -33,6 +33,11 @@
         display: none
         }
     </style>
+    <style>
+    .py-repl-run-button {
+        opacity: 1;
+    }
+    </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{analyticsId}}"></script>
@@ -52,6 +57,7 @@
     {{lesson.lesson_body}}
     <p> </p>
     <div id="lessonResult1" style="color: red;"></div>
+    <p>Click on play button to run the code!</p>
     <div class="py-repl-container">
         <py-repl id="my-repl">
             {{lesson.lesson_code}}
@@ -65,6 +71,7 @@
     {{lesson.lesson_body2}}
     <p> </p>
     <div id="lessonResult2" style="color: red;"></div>
+    <p>Click on play button to run the code!</p>
     <div class="py-repl-container">
         <py-repl id="my-repl2">
             {{lesson.lesson_code2}}
@@ -76,6 +83,7 @@
     {{lesson.lesson_body3}}
     <p> </p>
     <div id="lessonResult3" style="color: red;"></div>
+    <p>Click on play button to run the code!</p>
     <div class="py-repl-container">
         <py-repl id="my-repl3">
             {{lesson.lesson_code3}}
@@ -119,7 +127,9 @@
         }
 
         function processConsoleLog1(log) {
-            var expected_output = "{{lesson.lessson_result_script1}}"; // Replace with the expected output for Lesson 1
+            var expected_output = {{{lesson.lesson_result_script1}}}; // Replace with the expected output for Lesson 1
+
+            console.log({{{lesson.lesson_result_script1}}})
 
             if (resultIsCorrect1) {
                 return;
@@ -160,7 +170,7 @@
         }
 
         function processConsoleLog2(log) {
-            var expected_output = "{{lesson.lessson_result_script2}}"; // Replace with the expected output for Lesson 2
+            var expected_output = {{{lesson.lesson_result_script2}}}; // Replace with the expected output for Lesson 2
 
             if (resultIsCorrect2) {
                 return;
@@ -201,7 +211,7 @@
         }
 
         function processConsoleLog3(log) {
-            var expected_output = "{{lesson.lessson_result_script3}}"; // Replace with the expected output for Lesson 3
+            var expected_output = {{{lesson.lesson_result_script3}}}; // Replace with the expected output for Lesson 3
 
             if (resultIsCorrect3) {
                 return;
