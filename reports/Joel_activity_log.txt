@@ -1,2 +1,0 @@
-2024-02-02T05:16:57.399Z - User: Joel, Activity: Provided correct password
-2024-02-02T05:16:57.399Z - User: Joel, Activity: Logged In

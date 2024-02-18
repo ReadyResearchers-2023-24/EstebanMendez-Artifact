@@ -1,3 +1,0 @@
-2024-02-02T05:16:41.844Z - User: Julien, Activity: Provided correct password
-2024-02-02T05:16:41.845Z - User: Julien, Activity: Logged In
-2024-02-02T05:16:47.663Z - User: Julien, Activity: Logged Out
