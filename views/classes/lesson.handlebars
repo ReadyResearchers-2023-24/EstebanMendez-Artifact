@@ -8,6 +8,17 @@
     <script src="https://pyscript.net/latest/pyscript.js" defer></script>
     
     <style>
+        .view_lesson {
+            display: inline-block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .view_lesson button {
+            @include button();
+            @include button-color('#6495ed');
+            cursor: pointer; /* Ensure cursor changes on hover */
+        }
+
         /* Add custom CSS styles for the button */
         .py-repl-container {
             display: flex; /* Use flexbox to control layout */
@@ -49,7 +60,7 @@
   gtag('config', '{{analyticsId}}');
 </script>
 <body>
-    <a href="/classes/{{class._id}}/lessons">Back to lessons</a>
+    <a class= "view_lesson" href="/classes/{{class._id}}/lessons"><button>Back to lessons</button></a>
     <h2>{{lesson.lesson_title}}</h2>
 
     <!-- Display Lesson 1 -->
@@ -59,7 +70,7 @@
     <div id="lessonResult1" style="color: red;"></div>
     <p>Click on play button to run the code!</p>
     <div class="py-repl-container">
-        <py-repl id="my-repl">
+        <py-repl id="my-repl" output-mode="replace">
             {{lesson.lesson_code}}
         </py-repl>
         <py-splashscreen style="display: none;"></py-splashscreen>
@@ -73,7 +84,7 @@
     <div id="lessonResult2" style="color: red;"></div>
     <p>Click on play button to run the code!</p>
     <div class="py-repl-container">
-        <py-repl id="my-repl2">
+        <py-repl id="my-repl2" output-mode="replace">
             {{lesson.lesson_code2}}
         </py-repl>
     </div>
@@ -85,7 +96,7 @@
     <div id="lessonResult3" style="color: red;"></div>
     <p>Click on play button to run the code!</p>
     <div class="py-repl-container">
-        <py-repl id="my-repl3">
+        <py-repl id="my-repl3" output-mode="replace">
             {{lesson.lesson_code3}}
         </py-repl>
     </div>
