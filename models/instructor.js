@@ -1,3 +1,6 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-undef */
+
 const mongoose = require('mongoose')
 
 // Instrucor Schema

@@ -4,7 +4,7 @@ const router = express.Router()
 const Class = require('../models/class')
 const Instructor = require('../models/instructor')
 const User = require('../models/user')
-const { checkInstructor } = require('../middleware/middleware');
+const { checkInstructor } = require('../middleware/middleware')
 
 router.get('/classes', function (req, res, next) {
   Instructor.getInstructorByUsername(req.user.username, function (err, instructor) {
@@ -44,9 +44,9 @@ router.post('/classes/:id/lessons/new', checkInstructor, (req, res, next) => {
   info.lesson_code = req.body.lesson_code
   info.lesson_code2 = req.body.lesson_code2
   info.lesson_code3 = req.body.lesson_code3
-  info.lesson.lesson_result_script1 = req.body.lesson_result_script1;
-  info.lesson.lesson_result_script2 = req.body.lesson_result_script2;
-  info.lesson.lesson_result_script3 = req.body.lesson_result_script3;
+  info.lesson.lesson_result_script1 = req.body.lesson_result_script1
+  info.lesson.lesson_result_script2 = req.body.lesson_result_script2
+  info.lesson.lesson_result_script3 = req.body.lesson_result_script3
 
   Class.addLesson(info, function (err, lesson) {
     console.log('Lesson Added..')
