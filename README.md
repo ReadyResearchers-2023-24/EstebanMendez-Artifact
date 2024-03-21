@@ -62,10 +62,6 @@ Access the website with the link below
 
 [ProgMagus LMS](https://progmagus.chompe.rs/)
 
-## ProgMagus LMS:
-
-![HomePage](public/images/ProgMaguspic.png)
-
 ## Dependencies
 
 - express
@@ -98,5 +94,7 @@ Access the website with the link below
 
 - crypto
 
+## Preview of ProgMagus LMS:
 
+![HomePage](public/images/ProgMaguspic.png)
 
