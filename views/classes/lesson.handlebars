@@ -117,7 +117,7 @@
     </form> --}}
 
     <!-- Define the afterPyReplExec function for Lesson 1 -->
-    <script>
+    {{!-- <script>
         var consoleLog1 = '';
         var resultIsCorrect1 = false;
 
@@ -139,8 +139,6 @@
 
         function processConsoleLog1(log) {
             var expected_output = {{{lesson.lesson_result_script1}}}; // Replace with the expected output for Lesson 1
-
-            console.log({{{lesson.lesson_result_script1}}})
 
             if (resultIsCorrect1) {
                 return;
@@ -239,6 +237,6 @@
         }
 
         continuouslyCaptureConsoleLog3();
-    </script>
+    </script> --}}
 </body>
 </html>

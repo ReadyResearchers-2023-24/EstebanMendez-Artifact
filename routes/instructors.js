@@ -44,9 +44,9 @@ router.post('/classes/:id/lessons/new', checkInstructor, (req, res, next) => {
   info.lesson_code = req.body.lesson_code
   info.lesson_code2 = req.body.lesson_code2
   info.lesson_code3 = req.body.lesson_code3
-  info.lesson.lesson_result_script1 = req.body.lesson_result_script1
-  info.lesson.lesson_result_script2 = req.body.lesson_result_script2
-  info.lesson.lesson_result_script3 = req.body.lesson_result_script3
+  info.lesson_result_script1 = req.body.lesson_result_script1
+  info.lesson_result_script2 = req.body.lesson_result_script2
+  info.lesson_result_script3 = req.body.lesson_result_script3
 
   Class.addLesson(info, function (err, lesson) {
     console.log('Lesson Added..')
