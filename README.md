@@ -58,11 +58,43 @@ Database runs on a server,
    ```
 ## Access Website
 
-Here is the link for the website
+Access the website with the link below
 
 [ProgMagus LMS](https://progmagus.chompe.rs/)
 
-## ProgMagus LMS:
+## Dependencies
+
+- express
+
+- path
+
+- logger
+
+- cookieParser
+
+- bodyParser
+
+- exphbs
+
+- expressValidator 
+
+- flash
+
+- session
+
+- passport
+
+- LocalStrategy
+
+- mongo
+
+- mongoose
+
+- async
+
+- crypto
+
+## Preview of ProgMagus LMS:
 
 ![HomePage](public/images/ProgMaguspic.png)
 
